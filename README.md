@@ -18,7 +18,7 @@ The command has two attributes:
 
 -"name" or "n" that is used to define the name of the deformer;
 
--"symmetryPlane" or "sym" that is used to define the symmetry plane (XZ, YZ, XY) that visually splits a base mesh into two topologically identical parts.
+-"symmetryPlane" or "sym" that is used to define the plane of the symmetry (XZ, YZ, XY) that visually splits a base mesh into two topologically identical parts.
 
 ####Usage:
 There are two versions of the plugin available for testing and usage. Download one of them and place it in MAYA_PLUG_IN_PATH folder.
