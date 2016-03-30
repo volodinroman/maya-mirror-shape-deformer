@@ -1,6 +1,6 @@
 # mirrorShape
 
-A Maya deformer that inverts a shape of a topologically symmetrical mesh preserving vertices indices. Practically it was created for getting a blendShapes objects mirrored correctly in one click.
+A Maya deformer that inverts a shape of a topologically symmetrical mesh preserving vertices indices. Practically it was created for getting a blendShapes terget objects mirrored correctly in one click.
 
 The plugin includes:
 - mirrorShape command that runs the symmetry map calculation and sets the result to the defomer node
@@ -40,4 +40,4 @@ mirrorShape -n "deformerName" -symmetryPlane "YZ";
 ```
 maya.cmds.mirrorShape(n = "deformerName", symmetryPlane = "YZ")
 ```
-As soon as you like the invertation of the mesh shape you can delete the constructionHistory from the deformed mesh and use it as a blendShape.
+As soon as you like the invertation of the mesh shape you can delete the constructionHistory from the deformed mesh and use it as a blendShape target.
