@@ -186,6 +186,7 @@ MStatus MirrorBlendShape::doIt ( const MArgList &argList )
 				checkInRange(symPos.z, zAxis * pos.z - 0.01, zAxis * pos.z + 0.01))
 			{
 				symID = mapIter.index();
+				break;
 			}
 			mapIter.next();
 		}
