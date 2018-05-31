@@ -6,7 +6,7 @@ The plugin includes:
 - mirrorShape command that runs the symmetry map calculation and sets the result to the defomer node
 - mirrorShape deformer node that uses the symmetry map for relocating a target mesh vertices
 
-####How it works:
+## How it works:
 
 The only rule to get the plugin work correctly is to have a topologically symmetrical mesh located in the center of the scene.
 
@@ -20,7 +20,7 @@ The command has two attributes:
 
 -"symmetryPlane" or "sym" that is used to define the plane of the symmetry (XZ, YZ, XY) that visually splits a base mesh into two topologically identical parts.
 
-####Usage:
+## Usage:
 There are two versions of the plugin available for testing and usage. Download one of them and place it in MAYA_PLUG_IN_PATH folder.
 
 - Make sure the plugin has been loaded via pluginManager
@@ -31,12 +31,12 @@ There are two versions of the plugin available for testing and usage. Download o
 
 - First select a base mesh (in the center of the scene), then select the second (modified) mesh and run the next script
 
-####MEL
+## MEL
 ```
 mirrorShape -n "deformerName" -symmetryPlane "YZ";
 ```
 
-####Python
+## Python
 ```
 maya.cmds.mirrorShape(n = "deformerName", symmetryPlane = "YZ")
 ```
