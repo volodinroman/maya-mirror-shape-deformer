@@ -1,3 +1,5 @@
+[![Maya API](https://img.shields.io/badge/SDK-Maya%20API-blue.svg)]
+
 # mirrorShape
 
 A Maya deformer that inverts a shape of a topologically symmetrical mesh preserving vertices indices. Practically it was created for getting a blendShapes terget objects mirrored correctly in one click.
