@@ -2,44 +2,41 @@
 
 # mirrorShape
 
-A Maya deformer that inverts a shape of a topologically symmetrical mesh preserving vertices indices. Practically it was created for getting a blendShapes terget objects mirrored correctly in one click.
+**mirrorShape** is a Maya deformer that inverts the shape of a topologically symmetrical mesh while preserving vertex indices. It was designed to generate correctly mirrored blendShape targets in a single click.
 
-The plugin includes:
-- mirrorShape command that runs the symmetry map calculation and sets the result to the defomer node
-- mirrorShape deformer node that uses the symmetry map for relocating a target mesh vertices
+## Features
 
-## How it works:
+- **mirrorShape command** – Computes the symmetry map and assigns it to the deformer node.
+- **mirrorShape deformer node** – Uses the symmetry map to reposition target mesh vertices.
 
-The only rule to get the plugin work correctly is to have a topologically symmetrical mesh located in the center of the scene.
+## How It Works
 
-To invert a mesh correctly the plugin needs a "Symmetry Map" data that is calculated using a base mesh vertices positions, that's why before running the command "mirrorShape()" we need to select a base mesh first and then to select a target mesh.
+To ensure correct results, the base mesh must be **topologically symmetrical** and positioned at the **center of the scene**.
 
-After calculating the "Symmetry Map" the command creates a deformer and transfers the symmetry map data to it.
+1. The plugin calculates a **Symmetry Map** based on the base mesh’s vertex positions.
+2. You first **select the base mesh**, then **select the target mesh**.
+3. Running `mirrorShape()` generates a deformer and transfers the symmetry data.
 
-The command has two attributes:
+### Command Attributes
 
--"name" or "n" that is used to define the name of the deformer;
+- **`name` / `n`** – Specifies the deformer’s name.
+- **`symmetryPlane` / `sym`** – Defines the symmetry plane (`XZ`, `YZ`, or `XY`), which divides the base mesh into two symmetrical halves.
 
--"symmetryPlane" or "sym" that is used to define the plane of the symmetry (XZ, YZ, XY) that visually splits a base mesh into two topologically identical parts.
+## Installation & Usage
 
-## Usage:
-There are two versions of the plugin available for testing and usage. Download one of them and place it in MAYA_PLUG_IN_PATH folder.
+1. Download and place the plugin in the `MAYA_PLUG_IN_PATH` folder.
+2. Load the plugin via **Plugin Manager**.
+3. Open a scene with a symmetrical mesh positioned at world origin.
+4. Duplicate the mesh, apply deformations to one side, then run the command:
 
-- Make sure the plugin has been loaded via pluginManager
+### Using the deformer in Maya
 
-- Create a new scene or open an existing one with a mesh that has a symmetrical topology and located in zero coordinates of the world space.
-
-- Create a copy of this mesh, move it so as you could see it and apply some deformations to the one of the symmetrical sides.
-
-- First select a base mesh (in the center of the scene), then select the second (modified) mesh and run the next script
-
-## MEL
 ```
+// MEL
 mirrorShape -n "deformerName" -symmetryPlane "YZ";
+
+# Python
+maya.cmds.mirrorShape(n="deformerName", symmetryPlane="YZ")
 ```
 
-## Python
-```
-maya.cmds.mirrorShape(n = "deformerName", symmetryPlane = "YZ")
-```
-As soon as you like the invertation of the mesh shape you can delete the constructionHistory from the deformed mesh and use it as a blendShape target.
+Once satisfied with the shape inversion, delete construction history and use the result as a blendShape target.
